@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hefesto", "Hefesto\Hefesto.csproj", "{06BD569B-F412-43DD-BE9C-094D85BCE0BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hefesto.Tests", "Hefesto.Tests\Hefesto.Tests.csproj", "{BE087C50-EB26-481D-819B-A9831D160A66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06BD569B-F412-43DD-BE9C-094D85BCE0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BD569B-F412-43DD-BE9C-094D85BCE0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BD569B-F412-43DD-BE9C-094D85BCE0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BD569B-F412-43DD-BE9C-094D85BCE0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE087C50-EB26-481D-819B-A9831D160A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE087C50-EB26-481D-819B-A9831D160A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE087C50-EB26-481D-819B-A9831D160A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE087C50-EB26-481D-819B-A9831D160A66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3607E9D9-B14F-4D72-A8C2-01D65641C761}
+	EndGlobalSection
+EndGlobal
