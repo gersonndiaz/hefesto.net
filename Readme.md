@@ -45,6 +45,22 @@ Hefesto es un conjunto de utilidades escrita con .NET Core 3.1 el cual contiene 
   | ------ | ------ |
   | codeGenerator | Genera un código alfanumérico aleatorio con un largo parametrizable |
   | getUniqueKey | Genera un código aleatorio único |
+  
+  ### Class - DirectoryUtil
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | existsDirectory | Comprueba si existe un directorio |
+  | createDirectory | Crea un nuevo directorio |
+  
+  ### Class - FileUtil
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | existsFile | Comprueba si existe un archivo |
+  | deleteFile | Elimina un archivo |
+  | moveFile | Mueve un archivo a otro directorio |
+  | copyFile | Copia un archivo a otro directorio |
 
 License
 ----
