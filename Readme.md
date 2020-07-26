@@ -62,6 +62,7 @@ Hefesto es un conjunto de utilidades escrita con .NET Core 3.1 el cual contiene 
   | deleteFile | Elimina un archivo |
   | moveFile | Mueve un archivo a otro directorio |
   | copyFile | Copia un archivo a otro directorio |
+  | getMimeType | Recibe una extensión de archivo y retorna el mimetype correspondiente |
 
 License
 ----

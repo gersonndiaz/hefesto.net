@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hefesto.Tests
 {
-    public class Validacion
+    public class ValidacionTest
     {
         [SetUp]
         public void Setup()
