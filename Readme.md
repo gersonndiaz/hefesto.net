@@ -10,6 +10,7 @@ Hefesto es un conjunto de utilidades escrita con .NET Core 3.1 el cual contiene 
   | checkGuid | Comprueba si una cadena de texto corresponde a un GUID |
   | checkRutChile | Comprueba si la cadena de texto corresponde a un RUT chileno válido |
   | checkNumber | Comprueba si el dato ingresado es un número |
+  | checkUrl | Comprueba que la URL ingresada se encuentre bien formada |
   
   ### Class - SmtpUtil
   

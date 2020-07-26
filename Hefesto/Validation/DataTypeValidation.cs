@@ -127,5 +127,14 @@ namespace Hefesto.Validation
 
         }
 
+        /// <summary>
+        /// Comprueba que la URL ingresada sea valida
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <returns></returns>
+        public static bool checkUrl(string url)
+        {
+            return Uri.IsWellFormedUriString(url, UriKind.Absolute);
+        }
     }
 }
