@@ -1,6 +1,6 @@
 ﻿# Hefesto
 
-Hefesto es un conjunto de utilidades escrita con .NET Core 3.1 el cual contiene funciones tales como:
+Hefesto es un conjunto de utilidades escrita con .NET Standard 2.0 el cual contiene funciones tales como:
 
   ### Class - DataTypeValidation
   
