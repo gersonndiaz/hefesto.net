@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.2.4</Version>
+    <Version>1.2.5</Version>
     <Authors>Gerson Díaz</Authors>
     <Company>Ckelar Software SpA</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,8 +11,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageLicenseFile>License.md</PackageLicenseFile>
-    <AssemblyVersion>1.2.4.0</AssemblyVersion>
-    <FileVersion>1.2.4.0</FileVersion>
+    <AssemblyVersion>1.2.5.0</AssemblyVersion>
+    <FileVersion>1.2.5.0</FileVersion>
     <RepositoryUrl>https://github.com/gersonndiaz/hefesto.net</RepositoryUrl>
     <Description></Description>
   </PropertyGroup>

@@ -14,17 +14,18 @@ namespace Hefesto.Email
 
         public string host { get; set; }
         public int port { get; set; }
-        public bool ssl { get; set; }
+        public bool? ssl { get; set; }
         public string user { get; set; }
         public string password { get; set; }
         public string subject { get; set; }
         public string body { get; set; }
-        public List<string> recipiens { get; set; }
+        public List<string> recipients { get; set; }
         public List<string> cc { get; set; }
         public List<string> bcc { get; set; }
         public int priority { get; set; }
         public List<FileStream> attach_file { get; set; }
-        public bool isBodyHtml { get; set; }
+        public bool? isBodyHtml { get; set; }
+        public bool? useDefaultCredentials { get; set; }
 
         //============================================
 
@@ -42,11 +43,11 @@ namespace Hefesto.Email
                 SmtpClient smtp_client = new SmtpClient();
                 smtp_client.Port = port;
                 smtp_client.Host = host;
-                smtp_client.EnableSsl = ssl;
+                smtp_client.EnableSsl = (ssl.HasValue) ? ssl.Value : false;
 
                 smtp_client.Timeout = 20000;
                 smtp_client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp_client.UseDefaultCredentials = false;
+                smtp_client.UseDefaultCredentials = (useDefaultCredentials.HasValue) ? useDefaultCredentials.Value : true;
                 smtp_client.Credentials = new NetworkCredential(user, password);
                 // Fin Acceso a la casilla
 
@@ -83,10 +84,10 @@ namespace Hefesto.Email
                 mail.Subject = subject;
                 mail.Body = body;
                 mail.Priority = mPriority;
-                mail.IsBodyHtml = isBodyHtml;
+                mail.IsBodyHtml = (isBodyHtml.HasValue) ? isBodyHtml.Value : true;
 
                 // Agregar Destinatarios
-                foreach (string email in recipiens)
+                foreach (string email in recipients)
                 {
                     //mail.To.Add(email);
                     mail.To.Add(new MailAddress(email));
