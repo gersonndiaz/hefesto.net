@@ -33,7 +33,15 @@ Hefesto es un conjunto de utilidades escrita con .NET Standard 2.0 el cual conti
   | ------ | ------ |
   | SHA512 | Encripta una cadena de texto en SHA512 |
   
-  ### Class - FormatUtil
+  ### Class - FormatUtil (Proximamente será reemplazado por Class - Rut)
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | formatRutChile | Da formato de RUT chileno a una cadena de texto |
+  | removeFormatRutChile | Quita el formato a un RUT chileno |
+  | calcularDv | Calcula el dígito verificador a partir de la mantisa del RUT |
+  
+  ### Class - Rut
   
   | Función | Descripción |
   | ------ | ------ |
