@@ -10,7 +10,7 @@ namespace Hefesto.Format
         /// </summary>
         /// <param name="rut">string texto con el rut a formatear</param>
         /// <returns>Retorna RUT formateado</returns>
-        [Obsolete("Este método será movido a Rut.class", true)]
+        [Obsolete("Este método será movido a Rut.class", false)]
         public static string formatRutChile(string rut)
         {
             int cont = 0;
@@ -50,7 +50,7 @@ namespace Hefesto.Format
         /// </summary>
         /// <param name="rut">string con el valor del rut a quitar formato</param>
         /// <returns>Retorna RUTsin formato</returns>
-        [Obsolete("Este método será movido a Rut.class", true)]
+        [Obsolete("Este método será movido a Rut.class", false)]
         public static string removeFormatRutChile(string rut)
         {
             rut = rut.ToUpper();
