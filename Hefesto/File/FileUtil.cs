@@ -115,6 +115,70 @@ namespace Hefesto.File
             return success;
         }
 
+        /// <summary>
+        /// Convierte un archivo en una cadena base 64
+        /// </summary>
+        /// <param name="file">Archvio</param>
+        /// <param name="contenType">ContentType (Ej: [PDF: application/pdf] o [JPG: image/jpeg])</param>
+        /// <param name="isHtmlFormat">Identifica si corresponde a una cadena base64 que requiera ser deplegada en HTML (Estructura: "data:[<media type>][;base64],<data>")</param>
+        /// <returns>Retorna cadena en formato Base64</returns>
+        public static string fileToBase64(byte[] file, string contenType, bool? isHtmlFormat)
+        {
+            try
+            {
+                string fileB64 = Convert.ToBase64String(file);
+
+                if (!String.IsNullOrEmpty(fileB64) && isHtmlFormat.HasValue && isHtmlFormat.Value)
+                {
+                    if (!String.IsNullOrEmpty(contenType))
+                    {
+                        fileB64 = $"data:{contenType};base64,{fileB64}";
+                    }
+                    else
+                    {
+                        throw new Exception("Se produjo un error al convertir el archivo producto de que al solicitar formato HTML exige un contenType");
+                    }
+                }
+
+                return fileB64;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Convierte una cadena base64 en un archivo
+        /// </summary>
+        /// <param name="data">Cadena base64</param>
+        /// <returns>Retorna un archivo byte[]</returns>
+        public static byte[] base64ToFile(string data)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(data))
+                {
+                    if (data.StartsWith("data:"))
+                    {
+                        string[] dataSplit = data.Split(";base64,");
+                        data = dataSplit[1];
+                    }
+
+                    byte[] bytes = Convert.FromBase64String(data);
+                    return bytes;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         #region MIMETYPES
         private static IDictionary<string, string> _mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
 

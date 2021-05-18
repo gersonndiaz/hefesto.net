@@ -79,6 +79,7 @@ namespace Hefesto.Validation
         /// </summary>
         /// <param name="rut">string con el valor del RUT a validar</param>
         /// <returns>true || false</returns>
+        [Obsolete("Este método será movido a Rut.class y reemplazado por la función validar()", false)]
         public static bool checkRutChile(string rut)
         {
 
