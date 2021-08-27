@@ -1,6 +1,6 @@
 ﻿# Hefesto
 
-Hefesto es un conjunto de utilidades escrita con .NET Standard 2.0 el cual contiene funciones tales como:
+Hefesto es un conjunto de utilidades escrita con .NET Standard 2.1 el cual contiene funciones tales como:
 
   ### Class - DataTypeValidation
   
@@ -71,6 +71,12 @@ Hefesto es un conjunto de utilidades escrita con .NET Standard 2.0 el cual conti
   | moveFile | Mueve un archivo a otro directorio |
   | copyFile | Copia un archivo a otro directorio |
   | getMimeType | Recibe una extensión de archivo y retorna el mimetype correspondiente |
+  
+  ### Class - HtmlUtil
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | getFormInputs | Recibe atributos de una etiqueta Input o Textarea de HTML y retorna la estructura de la etiqueta como string |
 
 License
 ----
