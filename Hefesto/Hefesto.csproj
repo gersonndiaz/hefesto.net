@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.3.2</Version>
-    <Authors>Gerson Díazs</Authors>
+    <Version>1.3.3</Version>
+    <Authors>Gerson Díaz</Authors>
     <Company>Ckelar Software SpA</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Ckelar Software SpA</Copyright>
@@ -11,8 +11,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageLicenseFile>License.md</PackageLicenseFile>
-    <AssemblyVersion>1.3.2.0</AssemblyVersion>
-    <FileVersion>1.3.2.0</FileVersion>
+    <AssemblyVersion>1.3.3.0</AssemblyVersion>
+    <FileVersion>1.3.3.0</FileVersion>
     <RepositoryUrl>https://github.com/gersonndiaz/hefesto.net</RepositoryUrl>
     <Description>Hefesto es una librería que contiene un conjunto de utilidades que permiten realizar acciones recurrentes en el desarrollo de software, tales como validaciones de datos, conversiones, codificación, SMTP, entre otras cosas.</Description>
     <PackageProjectUrl>https://www.nuget.org/packages/Hefesto/</PackageProjectUrl>

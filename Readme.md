@@ -77,8 +77,30 @@ Hefesto es un conjunto de utilidades escrita con .NET Standard 2.1 el cual conti
   | Función | Descripción |
   | ------ | ------ |
   | getFormInputs | Recibe atributos de una etiqueta Input o Textarea de HTML y retorna la estructura de la etiqueta como string |
+  
+  ### Class - HttpUtil
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | urlExist | Recibe una URL para comprobar si responde con código 200, comprobando la existencia de la dirección web |
+  
+  ### Class - Utils
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | calculateTotalPages | Recibe el N° total de registros y la cantidad que se desean mostrar para retornar la cantidad de páginas que se requieren para estructurar una paginación |
 
-License
-----
+## Autores ✒️
 
-GPLv3
+* **Gerson Díaz** - *Creador* - [gersonndiaz](https://github.com/gersonndiaz)
+
+## Expresiones de Gratitud 🎁
+
+* Comenta a otros sobre este proyecto 📢
+* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
+* Da las gracias públicamente 🤓.
+* etc.
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia GPLv3 - mira el archivo [LICENSE.md](LICENSE.md) para detalles
