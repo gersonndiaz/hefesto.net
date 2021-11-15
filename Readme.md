@@ -2,6 +2,12 @@
 
 Hefesto es un conjunto de utilidades escrita con .NET Standard 2.1 el cual contiene funciones tales como:
 
+  ### Class - AspNetUtil
+  
+  | Función | Descripción |
+  | ------ | ------ |
+  | jsonGetAllControllerActions | Obtiene listado de acciones de todos los controladores escaneados de los Assemblies del proyecto |
+
   ### Class - DataTypeValidation
   
   | Función | Descripción |
