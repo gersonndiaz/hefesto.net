@@ -12,7 +12,7 @@ namespace Hefesto.AspNet
         /// </summary>
         /// <param name="controllerType">typeof(Microsoft.AspNetCore.Mvc.Controller)</param>
         /// <returns></returns>
-        public List<object> jsonGetAllControllerActions(Type controllerType)
+        public static List<object> jsonGetAllControllerActions(Type controllerType)
         {
             Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
             assemblies = assemblies.Where(x => x.FullName.StartsWith("Dorothy")).ToArray();
