@@ -85,6 +85,161 @@ namespace Hefesto.Html
 
             return r;
         }
+
+        #region Embedded Resources
+
+        /// <summary>
+        /// Permite cambiar una URL hacia un recurso incrustado por una url web hacia el mismo recurso
+        /// </summary>
+        /// <param name="embeddedUrl">Contiene la url con el formato de recurso incrustado<b>Sin incluir el nombre del archivo</b></param>
+        /// <param name="currentDirectory">Es el path de la app/extension para identificar si esta correidneo como app o extension</param>
+        /// <param name="extensionFolderName">Corresponde al nombre de la carpeta donde se registran las extensiones para identificar complementar si es app o extension. Por defecto es "Extensions"</param>
+        /// <example>
+        /// <code>
+        /// [Test]
+        /// public void embeddedResourceTest()
+        /// {
+        ///     string e1 = "Res.Images";
+        ///
+        ///     string dir1 = "app";
+        ///     string dir2 = "Extensions";
+        ///
+        ///     string folderName = "Extensions";
+        ///
+        ///     Assert.IsTrue(HelpersUtil.embeddedToStaticFileUrl(e1, dir2, folderName).Contains("."));
+        ///     Assert.IsTrue(HelpersUtil.embeddedToStaticFileUrl(e1, dir1, folderName).Contains("/"));
+        ///
+        ///     Assert.IsEmpty(HelpersUtil.embeddedToStaticFileUrl("", dir2, folderName));
+        /// }
+        /// </code>
+        /// </example>
+        /// <returns>
+        /// Si es extensión, retorna "Res.Images.image.png" <br />
+        /// Si no, retorna "Res/Images/image.png"
+        /// </returns>
+        public static string embeddedToStaticFileUrl(string embeddedUrl, string currentDirectory, string extensionFolderName)
+        {
+            try
+            {
+                Char replaceChar = '.';
+                extensionFolderName = (!String.IsNullOrEmpty(extensionFolderName)) ? extensionFolderName : "Extensions";
+
+                if (!currentDirectory.Contains(extensionFolderName))
+                {
+                    // Lo comentado evitaba cambiar el punto de extensión del archivo, pero ahora ya no es necesario
+
+                    //int lastIndex = embeddedUrl.LastIndexOf(replaceChar);
+                    //if (lastIndex != -1)
+                    //{
+                    //    string str = embeddedUrl.Substring(0, lastIndex);
+                    //    str = str.Replace(replaceChar, '/');
+
+                    //    embeddedUrl = str + embeddedUrl.Substring(lastIndex);
+                    //}
+
+                    embeddedUrl = embeddedUrl.Replace(replaceChar, '/');
+                }
+                return embeddedUrl;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Permite cambiar una URL hacia un recurso incrustado por una url web hacia el mismo recurso
+        /// </summary>
+        /// <param name="embeddedUrl">Contiene la url con el formato de recurso incrustado</param>
+        /// <param name="currentDirectory">Es el path de la app/extension para identificar si esta correidneo como app o extension</param>
+        /// <param name="extensionFolderName">Corresponde al nombre de la carpeta donde se registran las extensiones para identificar complementar si es app o extension. Por defecto es "Extensions"</param>
+        /// <param name="fileName">Corresponde al nombre del archivo en caso vaya incluido en la path, para hacer la extracción de él y evitar errores</param>
+        /// <example>
+        /// <code>
+        /// [Test]
+        /// public void embeddedResourceTest()
+        /// {
+        ///     string e1 = "Res.Images.logo.png";
+        ///
+        ///     string dir1 = "app";
+        ///     string dir2 = "Extensions";
+        ///
+        ///     string folderName = "Extensions";
+        ///
+        ///     Assert.IsTrue(HelpersUtil.embeddedToStaticFileUrl(e1, dir2, folderName).Contains("."));
+        ///     Assert.IsTrue(HelpersUtil.embeddedToStaticFileUrl(e1, dir1, folderName).Contains("/"));
+        ///
+        ///     Assert.IsEmpty(HelpersUtil.embeddedToStaticFileUrl("", dir2, folderName));
+        /// }
+        /// </code>
+        /// </example>
+        /// <returns>
+        /// Si es extensión, retorna "Res.Images.image.png" <br />
+        /// Si no, retorna "Res/Images/image.png"
+        /// </returns>
+        public static string embeddedToStaticFileUrl(string embeddedUrl, string currentDirectory, string extensionFolderName, string fileName)
+        {
+            try
+            {
+                Char replaceChar = '.';
+                extensionFolderName = (!String.IsNullOrEmpty(extensionFolderName)) ? extensionFolderName : "Extensions";
+
+                if (!currentDirectory.Contains(extensionFolderName))
+                {
+                    // Lo comentado evitaba cambiar el punto de extensión del archivo, pero ahora ya no es necesario
+
+                    //int lastIndex = embeddedUrl.LastIndexOf(replaceChar);
+                    //if (lastIndex != -1)
+                    //{
+                    //    string str = embeddedUrl.Substring(0, lastIndex);
+                    //    str = str.Replace(replaceChar, '/');
+
+                    //    embeddedUrl = str + embeddedUrl.Substring(lastIndex);
+                    //}
+
+                    if (!String.IsNullOrEmpty(fileName))
+                    {
+                        embeddedUrl = embeddedUrl.Replace(fileName, "");
+                    }
+
+                    embeddedUrl = embeddedUrl.Replace(replaceChar, '/') + ((!String.IsNullOrEmpty(fileName)) ? fileName : "");
+                }
+                return embeddedUrl;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Desde una URL retorna en formato Embedded Resource
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="currentDirectory"></param>
+        /// <param name="extensionFolderName"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static string staticFileUrlToEmbedded(string url, string currentDirectory, string extensionFolderName, string fileName)
+        {
+            try
+            {
+                Char replaceChar = '/';
+                extensionFolderName = (!String.IsNullOrEmpty(extensionFolderName)) ? extensionFolderName : "Extensions";
+
+                if (currentDirectory.Contains(extensionFolderName))
+                {
+                    url = url.Replace(replaceChar, '.');
+                }
+                return url;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion Embedded Resources
     }
 
     public enum TypeTag
