@@ -161,7 +161,8 @@ namespace Hefesto.File
                 {
                     if (data.StartsWith("data:"))
                     {
-                        string[] dataSplit = data.Split(";base64,");
+                        //string[] dataSplit = data.Split(";base64,");
+                        string[] dataSplit = data.Split(new string[] { ";base64," }, StringSplitOptions.None);
                         data = dataSplit[1];
                     }
 

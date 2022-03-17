@@ -15,7 +15,7 @@ namespace Hefesto.AspNet
         public static List<object> jsonGetAllControllerActions(Type controllerType)
         {
             Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            assemblies = assemblies.Where(x => x.FullName.StartsWith("Dorothy")).ToArray();
+            //assemblies = assemblies.Where(x => x.FullName.StartsWith("Dorothy")).ToArray();
 
             List<object> list = new List<object>();
 
