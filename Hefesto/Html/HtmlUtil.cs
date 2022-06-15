@@ -86,6 +86,116 @@ namespace Hefesto.Html
             return r;
         }
 
+        /// <summary>
+        /// Obtiene una cadena de texto con el HTML del input correspondiente
+        /// </summary>
+        /// <param name="typeTag"></param>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="typeInput"></param>
+        /// <param name="value"></param>
+        /// <param name="values"></param>
+        /// <param name="multiple"></param>
+        /// <param name="classes"></param>
+        /// <param name="required"></param>
+        /// <param name="placeholder"></param>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static string getFormInputs(TypeTag typeTag, string id, string name, string typeInput, string value, List<Value> values, bool? multiple, List<string> classes, bool? required, string placeholder, Dictionary<string, string> attributes)
+        {
+            string r = "";
+            string data = "";
+
+            try
+            {
+                data += ((!String.IsNullOrEmpty(id)) ? " id=\"" + id + "\"" : "");
+                data += ((!String.IsNullOrEmpty(name)) ? " name=\"" + name + "\"" : "");
+                data += ((!String.IsNullOrEmpty(typeInput)) ? " type=\"" + typeInput + "\"" : "");
+                data += ((!String.IsNullOrEmpty(id)) ? " placeholder=\"" + placeholder + "\"" : "");
+                data += ((required.HasValue && required.Value == true) ? " required" : "");
+                data += ((classes != null && classes.Count() > 0) ? $" class=\"{string.Join(" ", classes)}\"" : "");
+
+                if (attributes != null && attributes.Count > 0)
+                {
+                    foreach (var a in attributes)
+                    {
+                        data += $" {a.Key}=\"{a.Value}\"";
+                    }
+                }
+
+                if (typeTag.Equals(TypeTag.Textarea))
+                {
+                    r = $"<textarea{data}>{((!String.IsNullOrEmpty(value)) ? value : "")}</textarea>";
+                }
+                else if (typeTag.Equals(TypeTag.Select))
+                {
+                    r = $"<select{data}>";
+
+                    r += $"<option>";
+                    r += $"-- Seleccione --";
+                    r += $"</option>";
+
+                    if (values != null && values.Count > 0)
+                    {
+                        foreach(var v in values)
+                        {
+                            r += $"<option value='{v.value}' {((v.selected) ? "selected" : "")}>";
+                            r += $"{v.label}";
+                            r += $"</option>";
+                        }
+                    }
+
+                    r += $"</select>";
+                }
+                else if (typeTag.Equals(TypeTag.Checkbox))
+                {
+                    r = $"";
+
+                    if (values != null && values.Count > 0)
+                    {
+                        foreach (var v in values)
+                        {
+                            r += $"<div class='form-check'>";
+                            r += $"<input{data} {((v.selected) ? "checked" : "")} />";
+                            r += $"<label class='form-check-label'>";
+                            r += $"{v.label}";
+                            r += $"</label>";
+                            r += $"</div>";
+                        }
+                    }
+                }
+                else if (typeTag.Equals(TypeTag.Radio))
+                {
+                    r = $"";
+
+                    if (values != null && values.Count > 0)
+                    {
+                        foreach (var v in values)
+                        {
+                            r += $"<div class='form-check'>";
+                            r += $"<input{data} {((v.selected) ? "checked" : "")} />";
+                            r += $"<label class='form-check-label'>";
+                            r += $"{v.label}";
+                            r += $"</label>";
+                            r += $"</div>";
+                        }
+                    }
+                }
+                else
+                {
+                    data += ((!String.IsNullOrEmpty(value)) ? " value=\"" + value + "\"" : "");
+
+                    r = $"<input{data} />";
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return r;
+        }
+
         #region Embedded Resources
 
         /// <summary>
@@ -245,6 +355,16 @@ namespace Hefesto.Html
     public enum TypeTag
     {
         Input = 1,
-        Textarea = 2
+        Textarea = 2,
+        Select = 3,
+        Checkbox = 4,
+        Radio = 5
+    }
+
+    public class Value
+    {
+        public string label { get; set; }
+        public string value { get; set; }
+        public bool selected { get; set; }
     }
 }
