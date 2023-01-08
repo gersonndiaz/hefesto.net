@@ -1,4 +1,6 @@
-﻿namespace Hefesto.Rut
+﻿using System;
+
+namespace Hefesto.Rut
 {
     /// <summary>
     /// Clase con funcionalidades específicas para el RUT de Chile
@@ -98,25 +100,34 @@
         /// <returns>true || false</returns>
         public static bool validar(string rut)
         {
-
             bool validacion = false;
-            rut = rut.ToUpper();
-            rut = rut.Trim();
-            rut = rut.Replace(".", "");
-            rut = rut.Replace("-", "");
-            int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
-
-            char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
-
-            int m = 0, s = 1;
-            for (; rutAux != 0; rutAux /= 10)
+            
+            try
             {
-                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                rut = rut.ToUpper();
+                rut = rut.Trim();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
             }
-            if (dv == (char)(s != 0 ? s + 47 : 75))
+            catch(Exception e)
             {
-                validacion = true;
+                Console.WriteLine($"{e}");
+                validacion = false;
             }
+
             return validacion;
         }
     }
