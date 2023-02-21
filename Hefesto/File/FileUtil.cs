@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MimeTypes;
+using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 
 namespace Hefesto.File
 {
@@ -179,6 +181,71 @@ namespace Hefesto.File
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Convierte base64 en archivo, lo almacena y lo retorna como byte[]
+        /// </summary>
+        /// <param name="base64String"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static byte[] base64ToFile(string base64String, string filePath)
+        {
+            try
+            {
+                // Extraer el content-type desde la cadena de Base64
+                var base64Content = base64String.Substring(0, base64String.IndexOf(",") + 1);
+                var contentType = new ContentType(base64Content).MediaType;
+
+                // Determinar la extensión de archivo correspondiente al content-type
+                var extension = MimeTypeMap.GetExtension(contentType);
+
+                // Decodificar la cadena Base64 en un arreglo de bytes
+                var fileBytes = Convert.FromBase64String(base64String);
+
+                if (fileBytes != null)
+                {
+                    System.IO.File.WriteAllBytes(filePath, fileBytes);
+                }
+
+                // Devolver los bytes del archivo con la extensión correspondiente
+                return fileBytes;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Convierte base64 en archivo y lo almacena 
+        /// </summary>
+        /// <param name="base64String"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static bool saveBase64ToFile(string base64String, string filePath)
+        {
+            try
+            {
+                // Extraer el content-type desde la cadena de Base64
+                var base64Content = base64String.Substring(0, base64String.IndexOf(",") + 1);
+                var contentType = new ContentType(base64Content).MediaType;
+
+                // Determinar la extensión de archivo correspondiente al content-type
+                var extension = MimeTypeMap.GetExtension(contentType);
+
+                // Decodificar la cadena Base64 en un arreglo de bytes
+                var fileBytes = Convert.FromBase64String(base64String);
+
+                // Escribir los bytes en un archivo con la extensión correspondiente
+                System.IO.File.WriteAllBytes(filePath + extension, fileBytes);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
 
         #region MIMETYPES
         private static IDictionary<string, string> _mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {

@@ -76,6 +76,9 @@ Hefesto es un conjunto de utilidades escrita con .NET Standard 2.0 el cual conti
   | deleteFile | Elimina un archivo |
   | moveFile | Mueve un archivo a otro directorio |
   | copyFile | Copia un archivo a otro directorio |
+  | fileToBase64 | Convierte un archivo en una cadena base 64 |
+  | base64ToFile | Convierte base64 en archivo, lo almacena y lo retorna como byte[] |
+  | saveBase64ToFile | Convierte base64 en archivo y lo almacena |
   | getMimeType | Recibe una extensión de archivo y retorna el mimetype correspondiente |
   
   ### Class - HtmlUtil
