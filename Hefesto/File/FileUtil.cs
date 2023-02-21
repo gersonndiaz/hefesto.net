@@ -194,13 +194,28 @@ namespace Hefesto.File
             {
                 // Extraer el content-type desde la cadena de Base64
                 var base64Content = base64String.Substring(0, base64String.IndexOf(",") + 1);
+
+                if (base64Content.StartsWith("data:"))
+                {
+                    base64Content = base64Content.Replace("data:", "");
+                    string[] dataSplit = base64Content.Split(new string[] { ";base64," }, StringSplitOptions.None);
+
+                    base64Content = dataSplit[0];
+                }
+
                 var contentType = new ContentType(base64Content).MediaType;
 
                 // Determinar la extensión de archivo correspondiente al content-type
                 var extension = MimeTypeMap.GetExtension(contentType);
 
                 // Decodificar la cadena Base64 en un arreglo de bytes
-                var fileBytes = Convert.FromBase64String(base64String);
+                string b64 = "";
+                if (base64String.StartsWith("data:"))
+                {
+                    string[] dataSplit = base64String.Split(new string[] { ";base64," }, StringSplitOptions.None);
+                    b64 = dataSplit[1];
+                }
+                var fileBytes = Convert.FromBase64String(b64);
 
                 if (fileBytes != null)
                 {
@@ -228,13 +243,28 @@ namespace Hefesto.File
             {
                 // Extraer el content-type desde la cadena de Base64
                 var base64Content = base64String.Substring(0, base64String.IndexOf(",") + 1);
+
+                if (base64Content.StartsWith("data:"))
+                {
+                    base64Content = base64Content.Replace("data:", "");
+                    string[] dataSplit = base64Content.Split(new string[] { ";base64," }, StringSplitOptions.None);
+
+                    base64Content = dataSplit[0];
+                }
+
                 var contentType = new ContentType(base64Content).MediaType;
 
                 // Determinar la extensión de archivo correspondiente al content-type
                 var extension = MimeTypeMap.GetExtension(contentType);
 
                 // Decodificar la cadena Base64 en un arreglo de bytes
-                var fileBytes = Convert.FromBase64String(base64String);
+                string b64 = "";
+                if (base64String.StartsWith("data:"))
+                {
+                    string[] dataSplit = base64String.Split(new string[] { ";base64," }, StringSplitOptions.None);
+                    b64 = dataSplit[1];
+                }
+                var fileBytes = Convert.FromBase64String(b64);
 
                 // Escribir los bytes en un archivo con la extensión correspondiente
                 System.IO.File.WriteAllBytes(filePath + extension, fileBytes);
