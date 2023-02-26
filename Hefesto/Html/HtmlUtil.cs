@@ -247,7 +247,7 @@ namespace Hefesto.Html
                         foreach (var v in values)
                         {
                             r += $"<div class='form-check'>";
-                            r += $"<input{data} {((v.selected) ? "checked" : "")} />";
+                            r += $"<input{data} value='{v.value}' {((v.selected) ? "checked" : "")} />";
                             r += $"<label class='form-check-label'>";
                             r += $"{v.label}";
                             r += $"</label>";
@@ -264,7 +264,7 @@ namespace Hefesto.Html
                         foreach (var v in values)
                         {
                             r += $"<div class='form-check'>";
-                            r += $"<input{data} {((v.selected) ? "checked" : "")} />";
+                            r += $"<input{data} value='{v.value}' {((v.selected) ? "checked" : "")} />";
                             r += $"<label class='form-check-label'>";
                             r += $"{v.label}";
                             r += $"</label>";
