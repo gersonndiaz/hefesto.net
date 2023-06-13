@@ -27,17 +27,17 @@ namespace Hefesto.Tests
             Assert.IsTrue(FileUtil.saveBase64ToFile(b64Ej1, null));
 
 
-            byte[] bytes = System.IO.File.ReadAllBytes(@"C:\Users\Gerson\Downloads\_Testing\EjemploExcel_20210507.xlsx");
-            string file = FileUtil.fileToBase64(bytes, null, null);
-            string file2 = FileUtil.fileToBase64(bytes, null, false);
-            string file3 = FileUtil.fileToBase64(bytes, FileUtil.getMimeType(".xlsx"), true);
+            //byte[] bytes = System.IO.File.ReadAllBytes(@"C:\Users\Gerson\Downloads\_Testing\EjemploExcel_20210507.xlsx");
+            //string file = FileUtil.fileToBase64(bytes, null, null);
+            //string file2 = FileUtil.fileToBase64(bytes, null, false);
+            //string file3 = FileUtil.fileToBase64(bytes, FileUtil.getMimeType(".xlsx"), true);
 
-            byte[] bytes2 = FileUtil.base64ToFile(file);
-            byte[] bytes3 = FileUtil.base64ToFile(file2);
-            byte[] bytes4 = FileUtil.base64ToFile(file3);
-            System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej1.xlsx", bytes2);
-            System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej2.xlsx", bytes3);
-            System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej3.xlsx", bytes4);
+            //byte[] bytes2 = FileUtil.base64ToFile(file);
+            //byte[] bytes3 = FileUtil.base64ToFile(file2);
+            //byte[] bytes4 = FileUtil.base64ToFile(file3);
+            //System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej1.xlsx", bytes2);
+            //System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej2.xlsx", bytes3);
+            //System.IO.File.WriteAllBytes(@"C:\Users\Gerson\Downloads\_Testing\Writed\ej3.xlsx", bytes4);
         }
     }
 }

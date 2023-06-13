@@ -55,7 +55,7 @@ namespace Hefesto.Html
                 data += ((!String.IsNullOrEmpty(name)) ? " name=\"" + name + "\"" : "");
                 data += ((!String.IsNullOrEmpty(typeInput)) ? " type=\"" + typeInput + "\"" : "");
                 //data += ((!String.IsNullOrEmpty(value)) ? " value=\"" + value + "\"" : "");
-                data += ((!String.IsNullOrEmpty(id)) ? " placeholder=\"" + placeholder + "\"" : "");
+                data += ((!String.IsNullOrEmpty(placeholder)) ? " placeholder=\"" + placeholder + "\"" : "");
                 data += ((required.HasValue && required.Value == true) ? " required" : "");
                 data += ((classes != null && classes.Count() > 0) ? $" class=\"{string.Join(" ", classes)}\"" : "");
 
@@ -136,7 +136,7 @@ namespace Hefesto.Html
                 data += ((!String.IsNullOrEmpty(name)) ? " name=\"" + name + "\"" : "");
                 data += ((!String.IsNullOrEmpty(typeInput)) ? " type=\"" + typeInput + "\"" : "");
                 //data += ((!String.IsNullOrEmpty(value)) ? " value=\"" + value + "\"" : "");
-                data += ((!String.IsNullOrEmpty(id)) ? " placeholder=\"" + placeholder + "\"" : "");
+                data += ((!String.IsNullOrEmpty(placeholder)) ? " placeholder=\"" + placeholder + "\"" : "");
                 data += ((required.HasValue && required.Value == true) ? " required" : "");
                 data += ((classes != null && classes.Count() > 0) ? $" class=\"{string.Join(" ", classes)}\"" : "");
 
@@ -197,7 +197,7 @@ namespace Hefesto.Html
                 data += ((!String.IsNullOrEmpty(id)) ? " id=\"" + id + "\"" : "");
                 data += ((!String.IsNullOrEmpty(name)) ? " name=\"" + name + "\"" : "");
                 data += ((!String.IsNullOrEmpty(typeInput)) ? " type=\"" + typeInput + "\"" : "");
-                data += ((!String.IsNullOrEmpty(id)) ? " placeholder=\"" + placeholder + "\"" : "");
+                data += ((!String.IsNullOrEmpty(placeholder)) ? " placeholder=\"" + placeholder + "\"" : "");
                 data += ((required.HasValue && required.Value == true) ? " required" : "");
                 data += ((classes != null && classes.Count() > 0) ? $" class=\"{string.Join(" ", classes)}\"" : "");
 
