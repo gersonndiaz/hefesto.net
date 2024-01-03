@@ -7,6 +7,43 @@ namespace Hefesto.Encrypt
     /// </summary>
     public class EncryptUtil
     {
+        /// <summary>
+        /// Encripta una cadena de texto a SHA1
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string SHA1(string text)
+        {
+            var bytes = Encoding.UTF8.GetBytes(text);
+            using (var hash = System.Security.Cryptography.SHA1.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                var hashedInputStringBuilder = new StringBuilder(40);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Encripta una cadena de texto a SHA256
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string SHA256(string text)
+        {
+            var bytes = Encoding.UTF8.GetBytes(text);
+            using (var hash = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                var hashedInputStringBuilder = new StringBuilder(64);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
 
         /// <summary>
         /// Encripta una cadena de texto a SHA512

@@ -869,6 +869,38 @@ namespace Hefesto.File
 
             return _mappings.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
         }
+
+        /// <summary>
+        /// Extrae el ContentType de un string Base64
+        /// </summary>
+        /// <param name="base64Url"></param>
+        /// <returns></returns>
+        public static string ExtractContentTypeFromBase64Url(string base64Url)
+        {
+            // Obtener el índice de la coma que separa el encabezado del contenido
+            int commaIndex = base64Url.IndexOf(',');
+            if (commaIndex == -1)
+            {
+                // La URL base64 no es válida, no hay coma que separe el encabezado del contenido
+                return null;
+            }
+
+            // Extraer el encabezado de la URL base64 (desde el inicio hasta la coma)
+            string header = base64Url.Substring(0, commaIndex);
+
+            // Obtener el índice del punto y coma que separa el Content-Type del encoding
+            int semicolonIndex = header.IndexOf(';');
+            if (semicolonIndex == -1)
+            {
+                // El encabezado no contiene el Content-Type, no es una URL base64 válida
+                return null;
+            }
+
+            // Extraer el Content-Type (desde el inicio hasta el punto y coma)
+            string contentType = header.Substring(0, semicolonIndex);
+
+            return contentType;
+        }
         #endregion MIMETYPES
     }
 }
